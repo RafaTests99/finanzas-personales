@@ -1,0 +1,420 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.App {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.titulo{
+  color: #fff;
+  width: 100%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.Sidebar {
+
+  background-color: #2F4050;
+
+}
+
+
+.css-4t3x6l-MuiPaper-root-MuiDrawer-paper {
+  background-color: #2F4050 !important;
+}
+
+
+.SidebarList {
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.SidebarList .row {
+  height: 60px;
+  width: 100%;
+  list-style-type: none;
+  margin: 0%;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.SidebarList .row:hover {
+  background-color: #3E5363;
+  cursor: pointer;
+}
+
+.SidebarList #active {
+  background-color: #3E5363;
+}
+
+.row #icon {
+  flex: 30%;
+  display: grid;
+  place-items: center;
+}
+
+.row #title {
+  flex: 70%;
+}
+
+.General {
+  padding: 2% 5% 2% 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.General .card {
+  flex: 1;
+  max-width: 20%;
+  margin: 1%;
+  box-sizing: border-box;
+}
+
+.General p {
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+
+
+/*ESTILOS PARA INSERTAR PANTALLA DE GASTOS*/
+.gastos {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+  height: 100%;
+}
+
+.datosGastos {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  align-items: center;
+
+}
+
+.datosGastos div{
+  margin: 2.5rem;
+  flex:1;
+  width: 50%;
+}
+
+.container {
+  margin-top: 2%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+}
+
+.container p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #555;
+  text-align: center;
+}
+
+
+.input,
+.select-btn,
+.textarea {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  font-size: 0.875rem;
+}
+
+.input[type="number"] {
+  appearance: textfield;
+}
+
+.select-container {
+  position: relative;
+  width: 100%;
+}
+
+.select-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  opacity: 0.5;
+}
+
+.hidden-select {
+  position: absolute;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
+.textarea {
+  min-height: 80px;
+}
+
+.submit-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  height: 2.5rem;
+  padding: 0.5rem;
+  width: auto;
+  background-color: #3490dc;
+  color: #fff;
+  border: none;
+}
+
+.submit-btn:hover {
+  background-color: #2779bd;
+}
+
+
+/* INSERTAR GASTOS */
+
+ select {
+   padding: 8px;
+   font-size: 16px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   background-color: #f8f8f8;
+ }
+
+ /* Estilo para las opciones del select */
+ option {
+   background-color: #fff;
+ }
+
+ /* Estilo para la opción seleccionada */
+ option:checked {
+   background-color: #e0e0e0;
+ }
+
+ /* ESTILOS PARA LA TABLA DE GASTOS */
+.table-header {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.sectionGastos{
+  background: linear-gradient(to right, #25c481, #25b7c4);
+  font-family: 'Roboto', sans-serif;
+  margin: 50px;
+}
+.table-body {
+  height: 500px;
+  overflow-x: auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+ table {
+   width: 100%;
+   table-layout: fixed;
+ }
+ th {
+   padding: 20px 15px;
+   text-align: center;
+   font-weight: 500;
+   font-size: 12px;
+   color: #fff;
+   text-transform: uppercase;
+ }
+
+ td {
+   padding: 15px;
+   text-align: center;
+   vertical-align: middle;
+   font-weight: 300;
+   font-size: 12px;
+   color: #fff;
+   border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+ }
+ #estiloScrollBar::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+   background-color: #F5F5F5;
+ }
+
+ #estiloScrollBar::-webkit-scrollbar {
+   width: 6px;
+   background-color: #F5F5F5;
+ }
+
+ #estiloScrollBar::-webkit-scrollbar-thumb {
+   background-color: #000000;
+ }
+
+
+
+
+/* ESTILOS GRAFICAS GENERAL */
+
+.contenedor-graficas {
+  display: flex;
+  flex-direction: column;
+  /* Alinear las filas verticalmente */
+  height: 75vh;
+  /* Altura total del contenedor de gráficas */
+}
+
+
+.grafica {
+  flex: 1;
+  display: flex;
+  gap: 5%;
+  flex-direction: row;
+  /* Que las gráficas ocupen todo el espacio disponible horizontalmente */
+  background-color: #f0f0f0;
+  /* Color de fondo de las gráficas (solo para demostración) */
+ padding: 2% 10% 2% 10%;
+ 
+}
+
+/* ESTILOS PARA BOTÓN ELIMINAR GASTO */
+.button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  gap: 2px;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.button:hover {
+  transition-duration: 0.3s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+  gap: 0;
+}
+
+.bin-top {
+  transform-origin: bottom right;
+}
+
+.button:hover .bin-top {
+  transition-duration: 0.5s;
+  transform: rotate(160deg);
+}
+
+    #columnaAccion {
+      text-align: -webkit-center;
+    }
+
+
+/* ESTILOS PARA DISPOSITIVOS MÓVILES */
+
+@media (max-width: 768px) {
+  .General {
+    margin: 5%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .General .card {
+    max-width: 100%;
+  }
+
+  .General p {
+    font-size: 14px;
+    /* Ajusta el tamaño del texto para dispositivos móviles según tus preferencias */
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: normal;
+    padding: 4%;
+  }
+
+  .grafica {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  th{
+    font-size: 10px;
+  }
+
+  td{
+    font-size: 10px;
+  }
+
+  .sectionGastos{
+    margin: 4%;
+  }
+
+  .button {
+    width: 30px;
+    height: 30px;
+  }
+
+        #columnaAccion {
+          width: auto;
+        }
+
+
+
+
+}
