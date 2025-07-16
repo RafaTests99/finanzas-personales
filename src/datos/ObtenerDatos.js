@@ -33,6 +33,34 @@ export function ObtenerTotalGastos() {
     return gastos;
 }
 
+export function ObtenerTotalGastosPorAño(año) {
+    const [gastosData, setGastosData] = useState([]);
+    useEffect(() => {
+        const fetchGastosData = async () => {
+            try {
+                const gastosSnapshot = await firestore.collection('Gastos').get();
+                const gastosDataArray = gastosSnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                setGastosData(gastosDataArray);
+            } catch (error) {
+                console.error('Error al obtener datos de Firestore:', error);
+            }
+        };
+        fetchGastosData();
+    }, []);
+    const gastosAnuales = gastosData.filter((gasto) => {
+        const fecha = gasto.fecha.split("-");
+        return fecha[0] === año.toString();
+    });
+    var totalGastosAnuales = 0.0;
+    gastosAnuales.map((gasto) => (
+        totalGastosAnuales += gasto.coste
+    ));
+    return totalGastosAnuales;
+}
+
 export function ObtenerGastos() {
     const [gastosData, setGastosData] = useState([]);
 
@@ -90,6 +118,37 @@ export function ObtenerIngresos() {
     ));
     return ingresos;
 }
+
+export function ObtenerIngresosPorAño(año) {
+    const [ingresosData, setIngresosData] = useState([]);
+    useEffect(() => {
+        const fetchIngresosData = async () => {
+            try {
+                const ingresosSnapshot = await firestore.collection('Ingresos').get();
+                const ingresosDataArray = ingresosSnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                setIngresosData(ingresosDataArray);
+            } catch (error) {
+                console.error('Error al obtener datos de Firestore:', error);
+            }
+        };
+        fetchIngresosData();
+    }, []);
+
+    const ingresosAnuales = ingresosData.filter((ingreso) => {
+        const fecha = ingreso.fecha.split("-");
+        return fecha[0] === año.toString();
+    });
+
+    var totalIngresosAnuales = 0.0;
+    ingresosAnuales.map((ingreso) => (
+        totalIngresosAnuales += ingreso.cantidad
+    ));
+    return totalIngresosAnuales;
+}
+
 
 export function ObtenerCategorias() {
     const [categoriasData, setCategoriasData] = useState([]);

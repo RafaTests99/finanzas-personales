@@ -7,16 +7,16 @@ import {
 const valueFormatter = (number) =>
   `${new Intl.NumberFormat("us").format(number).toString()}€`;
 
-function GeneralGraficas() {
+function GeneralGraficas({ year }) {
   return (
     <div className="contenedor-graficas">
       <div className="grafica grafica1">
         <Card>
           <Title>Gastos totales mensualmente</Title>
-          <Subtitle>Los datos mostrados son para 2024.</Subtitle>
+          <Subtitle>Los datos mostrados son para {year}.</Subtitle>
           <BarChart
             className="mt-6"
-            data={TotalGastadoMensual(2024)}
+            data={TotalGastadoMensual(year)}
             index="mes"
             categories={["Ingresado", "Gastado"]}
             colors={["blue", "red"]}
@@ -26,10 +26,10 @@ function GeneralGraficas() {
         </Card>
         <Card>
           <Title>Gastos mensuales por categoría</Title>
-          <Subtitle>Los datos mostrados son para 2024.</Subtitle>
+          <Subtitle>Los datos mostrados son para {year}.</Subtitle>
           <BarChart
             className="mt-6"
-            data={TotalGastadoCategoria(2024)}
+            data={TotalGastadoCategoria(year)}
             index="categoria"
             categories={["Total"]}
             colors={["blue"]}

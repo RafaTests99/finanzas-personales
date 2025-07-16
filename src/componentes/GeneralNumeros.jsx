@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { firestore } from "../firebase";
-import { ObtenerTotalGastos, ObtenerIngresos } from "../datos/ObtenerDatos";
+import {
+  ObtenerTotalGastos,
+  ObtenerIngresos,
+  ObtenerIngresosPorAño,
+  ObtenerTotalGastosPorAño,
+} from "../datos/ObtenerDatos";
 import CountUp from "react-countup";
 import { Card, Metric, Text } from "@tremor/react";
 
-function GeneralNumeros() {
+function GeneralNumeros({ year }) {
   var ingresosTotales = ObtenerIngresos();
+  var ingresosPorAño = ObtenerIngresosPorAño(year);
   var gastosTotales = ObtenerTotalGastos();
-  var inversionTotal = 450;
-  var beneficioTotal = ingresosTotales - gastosTotales - inversionTotal;
-  var porcentajeAhorro = (beneficioTotal / ingresosTotales) * 100;
+  var gastosPorAño = ObtenerTotalGastosPorAño(year);
+  //var inversionTotal = 950;
+  var beneficioTotal = ingresosPorAño - gastosPorAño;
+  var porcentajeAhorro = (beneficioTotal / ingresosPorAño) * 100;
   return (
     <div className="General">
       <Card className="card">
@@ -17,7 +24,7 @@ function GeneralNumeros() {
         <Metric>
           <CountUp
             start={0}
-            end={ingresosTotales}
+            end={ingresosPorAño}
             duration={2}
             delay={0}
             separator=","
@@ -31,7 +38,7 @@ function GeneralNumeros() {
         <Metric>
           <CountUp
             start={0}
-            end={-gastosTotales}
+            end={-gastosPorAño}
             duration={2}
             delay={0}
             separator=","
@@ -40,12 +47,12 @@ function GeneralNumeros() {
           €
         </Metric>
       </Card>
-      <Card className="card">
+      {/* <Card className="card">
         <Text>Total invertido</Text>
         <Metric>
           <CountUp
             start={0}
-            end={-inversionTotal}
+            end={inversionTotal}
             duration={2}
             delay={0}
             separator=","
@@ -53,9 +60,9 @@ function GeneralNumeros() {
           />
           €
         </Metric>
-      </Card>
+      </Card> */}
       <Card className="card">
-        <Text>Total Beneficio</Text>
+        <Text>Ahorro + Inversión</Text>
         <Metric>
           <CountUp
             start={0}
