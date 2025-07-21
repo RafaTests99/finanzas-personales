@@ -30,6 +30,9 @@ body {
   background-color: #2F4050 !important;
 }
 
+.MuiDrawer-paper {
+  background-color: #2f4050 !important;
+}
 
 .SidebarList {
   height: auto;
